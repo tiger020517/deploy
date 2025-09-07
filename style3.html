@@ -3,32 +3,71 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>No Style</title>
+		<title>sytle3</title>
+		<style>
+			#menulist {
+				padding: 0;
+				position: relative;
+				overflow: auto;
+			}
+			.menuitem {
+				width: 165px;
+				float: left;
+				background-color: #555555;
+				color: #ffffff;
+				list-style-type: none;
+				margin: 4px;
+				padding: 2px;
+				text-align: center;
+				cursor: pointer;
+			}
+			.menuitem:hover{
+				background-color: #000;
+			}
+			#side {
+				background-color: #f1f1f1;
+				border: 1px solid #d4d4d4;
+				padding-left: 10px;
+			}
+			a {
+				color: #000000;
+			}
+			a:hover {
+				color: #84c754;
+			}
+
+			#bottom {
+				text-align: center;
+				padding: 10px;
+				font-size: 70%;
+				line-height: 14px;
+			}
+		</style>
 	</head>
 	<body>
 		<div id="top">
-			<h1>
+			<h1 style="color: #4CAF50;">
 				Welcome to JunHyoung's Homepage 22200182
 			</h1>
 			Use the menu to select different Stylesheets
 		</div>
 		<div id="wrapper">
-			<div id="menu">
-				<li>Stylesheet 1</li>
-				<li>Stylesheet 2</li>
-				<li>Stylesheet 3</li>
-				<li>Stylesheet 4</li>
-				<li>No Stylesheet</li>
+			<div id="menulist">
+				<li class="menuitem">Stylesheet 1</li>
+				<li class="menuitem">Stylesheet 2</li>
+				<li class="menuitem">Stylesheet 3</li>
+				<li class="menuitem">Stylesheet 4</li>
+				<li class="menuitem">No Stylesheet</li>
 			</div>
-			<h1>Same Page Different Stylesheets</h1>
+			<h1 style="color: #4CAF50;">Same Page Different Stylesheets</h1>
 			This is a demonstration of how different stylesheets can change the layout of your HTML page. You can change the layout of this page by selecting different stylesheets in the menu, or by selecting one of the following links:
-			<a href="#">Stylesheet1</a>, <a href="#">Stylesheet2</a>, <a href="#">Stylesheet3</a>, <a href="#">Stylesheet4</a>.
+			<a href="404.html">Stylesheet1</a>, <a href="404.html">Stylesheet2</a>, <a href="#">Stylesheet3</a>, <a href="style4.html">Stylesheet4</a>.
 
-			<h2>No Styles</h2>
+			<h2 style="color: #4CAF50;"">No Styles</h2>
 			This page uses DIV elements to group different sections of the HTML page. Click here to see how the page looks like with no stylesheet:
 			<a href="nostyle.html">No Stylesheet.</a>
 			<div id="side">
-				<h3>Side-Bar</h3>
+				<h3 style="color: #4CAF50;">Side-Bar</h3>
 				Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
 			</div>
 		</div>
