@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>장기 매매 지원자 모집 폼</title>
+</head>
+<body>
+	<h1>당신의 헌신에 감사합니다</h1>
+	<form>
+		<label for="name">이름:</label>
+		<input type="text" id="name" name="name" required><br><br>
+
+		<label for="age">나이:</label>
+		<input type="number" id="age" name="age" required><br><br>
+
+		<label for="contact">연락처:</label>
+		<input type="text" id="contact" name="contact" required><br><br>
+
+		<label for="height">키:</label>
+		<input type="range" id="height" name="height" min="0" max="200" required><br><br>
+		
+		<label for="weight">몸무게:</label>
+		<input type="range" id="weight" name="weight" min="0" max="150" required><br><br>
+		
+		<label for="blood_type">혈액형:</label>
+		<input type="radio" id="A" name="blood_type" value="A" required>
+		<label for="A">A</label>
+		<input type="radio" id="B" name="blood_type" value="B">
+		<label for="B">B</label>
+		<input type="radio" id="AB" name="blood_type" value="AB">
+		<label for="AB">AB</label>
+		<input type="radio" id="O" name="blood_type" value="O">
+		<label for="O">O</label><br><br>
+
+		<label for="organ">기증할 장기:</label>
+		<select id="organ" name="organ" required>
+			<option value="kidney">신장</option>
+			<option value="liver">간</option>
+			<option value="heart">심장</option>
+			<option value="lung">폐</option>
+			<option value="pancreas">췌장</option>
+			<option value="intestine">장</option>
+			<option value="cornea">각막</option>
+		</select><br><br>
+
+		<label for="health">건강 상태:</label><br>
+		<textarea id="health" name="health" rows="4" cols="50" placeholder="건강 상태에 대해 간단히 설명해주세요." required></textarea><br><br>
+
+		<label for="date">희망 기증 날짜:</label>
+		<input type="date" id="date" name="date" required><br><br>
+		<input type="submit" value="제출">
+	</form>
+</body>
+</html>
