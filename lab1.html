@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+  <div id="timer">0</div>
+  <div>
+    <button id="start">시작</button>
+    <button id="stop">정지</button>
+  </div>
+
+  <script>
+    const Start = document.getElementById('start');
+    const Stop = document.getElementById('stop');
+    const Time = document.getElementById('timer');
+      
+      let count = 0;
+      let intervalID = null;
+
+    Start.addEventListener('click', () => {
+      if (intervalID !== null) {
+        return ;
+      }
+      intervalID = setInterval(() => {
+        count++;
+        Time.textContent = count;
+      }, 1000);
+    });
+
+    Stop.addEventListener('click', ()=> {
+      clearInterval(intervalID);
+      intervalID = null;
+    });
+  </script>
+</body>
+</html>

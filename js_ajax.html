@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	<button>학생데이터 가져오기</button>
+	<div>
+		<h2>가수 추가</h2>
+		<label>이름: <input type="text" id="add-name" required></label>
+		<label>출생년도: <input type="number" id="add-birth-year" required></label>
+		<label>대표곡: <input type="text" id="add-best-song" required></label>
+		<button id="add-btn">추가 (Post)</button>
+	</div>
+	<div>
+		<h2>가수 정보 수정</h2>
+		<label>ID: <input type="number" id="update-id" placeholder="수정할 가수 ID" required></label>
+		<label>이름: <input type="text" id="update-name" required></label>
+		<label>출생년도: <input type="number" id="update-birth-year" required></label>
+		<label>대표곡: <input type="text" id="update-best-song" required></label>
+		<button id="update-btn">추가 (Post)</button>
+	</div>
+	<div>
+		<h2>가수 삭제</h2>
+		<label>ID: <input type="number" id="delete-id" placeholder="삭제할 가수 ID" required></label>
+		<button id="delete-btn">추가 (Post)</button>
+	</div>
+
+	<hr>
+	<button id="fetch-btn">전체 가수 조회 (GET)</button>
+	<div id="result"></div>
+
+	<script>
+		const API_URL = 'http://localhost:3001/singers';
+
+		const resultDiv = document.getElementById('result');
+
+		const fetchSingers = () => {
+			const xhr = new XMLHttpRequest();
+			xhr.open('GET', API_URL);
+			xhr.onload = () => {
+				if (xhr.status === 200) {
+					const data = JSON.parse(xhr.responseText);
+					resultDiv.innerHTML = '';
+					data.forEach(singer => {
+						const singerItem = document.createElement('div');
+						singerItem.className = 'singer-item';
+						singerItem.innerHTML = `
+							<strong>ID:</strong> ${singer.id} <br>
+							<strong>이름:</strong> ${singer.name} <br>
+							<strong>출생년도:</strong> ${singer.birth_year} <br>
+							<strong>대표곡:</strong> ${singer.best_song} <br>
+						`;
+						resultDiv.appendChild(singerItem);
+					});
+				} else {
+					console.error('Network error');
+				};
+			};
+			xhr.send();
+		}
+
+		document.getElementById('add-btn').addEventListener('click', () => {
+        	const newSinger = {
+        	    name: document.getElementById('add-name').value,
+    	        birth_year: parseInt(document.getElementById('add-birth-year').value),
+    	        best_song: document.getElementById('add-best-song').value,
+    	    };
+
+    	    const xhr = new XMLHttpRequest();
+    	    xhr.open('POST', API_URL);
+    	    xhr.setRequestHeader('Content-Type', 'application/json');
+    	    xhr.onload = () => {
+            if (xhr.status === 201) {
+                fetchSingers();
+                document.getElementById('add-name').value = '';
+                document.getElementById('add-birth-year').value = '';
+                document.getElementById('add-best-song').value = '';
+            } else {
+                console.error('Error adding singer:', xhr.statusText);
+            }
+    	    };
+    	    xhr.send(JSON.stringify(newSinger));
+    	});
+		document.getElementById('update-btn').addEventListener('click', () => {
+        const id = document.getElementById('update-id').value;
+        const updatedData = {
+            name: document.getElementById('update-name').value,
+            birth_year: parseInt(document.getElementById('update-birth-year').value),
+            best_song: document.getElementById('update-best-song').value,
+        };
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('PUT', `${API_URL}/${id}`);
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                fetchSingers(); 
+            } else {
+                console.error('Error updating singer:', xhr.statusText);
+            }
+        };
+        xhr.send(JSON.stringify(updatedData));
+    });
+
+    document.getElementById('delete-btn').addEventListener('click', () => {
+        const id = document.getElementById('delete-id').value;
+        if (!id) {
+            alert('삭제할 ID를 입력하세요.');
+            return;
+        }
+
+        const xhr = new XMLHttpRequest();
+        xhr.open('DELETE', `${API_URL}/${id}`);
+        xhr.onload = () => {
+            if (xhr.status === 200) {
+                fetchSingers();
+            } else {
+                console.error('Error deleting singer:', xhr.statusText);
+            }
+        };
+        xhr.send();
+    });
+
+    document.getElementById('fetch-btn').addEventListener('click', fetchSingers);
+    
+    fetchSingers();
+	</script>
+</body>
+</html>
+<script>
+</script>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>OSS Lab Portal</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #002f6c, #f9d71c);
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+      color: white;
+    }
+
+    h1 {
+      font-size: 3em;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px #000, -2px -2px #ff00ff;
+      animation: glitch 2s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px #000, -2px -2px #ff00ff; }
+      25% { text-shadow: -2px 2px #00ffff, 2px -2px #000; }
+      50% { text-shadow: 2px -2px #ff00ff, -2px 2px #000; }
+      75% { text-shadow: -2px -2px #00ff00, 2px 2px #000; }
+      100% { text-shadow: 2px 2px #000, -2px -2px #ff00ff; }
+    }
+
+    .links {
+      margin-top: 30px;
+      display: grid;
+      grid-template-columns: repeat(2, 150px);
+      gap: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      background: rgba(0,0,0,0.6);
+      color: #f9d71c;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.2em;
+      transition: all 0.2s ease-in-out;
+      position: relative;
+    }
+
+    a:hover {
+      transform: rotate(-2deg) scale(1.1);
+      background: #00ffff;
+      color: #000;
+      box-shadow: 0 0 15px #ff00ff;
+    }
+
+    .bg-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      animation: float 6s infinite alternate;
+    }
+
+    .shape1 {
+      width: 200px; height: 200px;
+      background: #ff00ff;
+      top: 10%; left: 5%;
+      animation-delay: 0s;
+    }
+    .shape2 {
+      width: 300px; height: 300px;
+      background: #00ffff;
+      bottom: 5%; right: 10%;
+      animation-delay: 2s;
+    }
+
+    @keyframes float {
+      from { transform: translateY(0px) rotate(0deg); }
+      to { transform: translateY(30px) rotate(20deg); }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-shape shape1"></div>
+  <div class="bg-shape shape2"></div>
+  <h1>WELCOME TO JunHyoung's LABS</h1>
+  <div class="links">
+    <a href="lab1.html">Lab 1</a>
+    <a href="lab2.html">Lab 2</a>
+    <a href="lab3.html">Lab 3</a>
+    <a href="js_ajax.html">lab 4</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{
+  "singers": [
+    {
+      "id": "1",
+      "name": "Frank Sinatra",
+      "birth_year": 1915,
+      "best_song": "My Way"
+    },
+    {
+      "id": "2",
+      "name": "Tony Bennett",
+      "birth_year": 1926,
+      "best_song": "I Left My Heart in San Francisco"
+    },
+    {
+      "id": "3",
+      "name": "Billy Joel",
+      "birth_year": 1949,
+      "best_song": "Piano Man"
+    },
+    {
+      "id": "4",
+      "name": "Freddie Mercury",
+      "birth_year": 1946,
+      "best_song": "Bohemian Rhapsody"
+    },
+    {
+      "id": "6fe4",
+      "name": "프렝크 시나트라",
+      "birth_year": 2002,
+      "best_song": "myway"
+    }
+  ]
+}
