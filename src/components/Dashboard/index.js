@@ -9,14 +9,23 @@ import Edit from './Edit';
 import { employeesData } from '../../data';
 
 const Dashboard = ({ setIsAuthenticated }) => {
-  const [employees, setEmployees] = useState(employeesData);
+  const [employees, setEmployees] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
   const [isAdding, setIsAdding] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
   useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('employees_data'));
-    if (data !== null && Object.keys(data).length !== 0) setEmployees(data);
+    const fetchEmployees = async () => {
+      try {
+        const response = await fetch('https://68e56b5221dd31f22cc1b591.mockapi.io/employess');
+        const data = await response.json();
+        setEmployees(data);
+      } catch (error) {
+        console.error('Error fetching data: ', error);
+      }
+    };
+
+    fetchEmployees();
   }, []);
 
   const handleEdit = id => {

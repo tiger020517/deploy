@@ -91,7 +91,7 @@ const Add = ({ employees, setEmployees, setIsAdding }) => {
         <div style={{ marginTop: '30px' }}>
           <input type="submit" value="Add" />
           <input
-            style={{ marginLeft: '12px' }}
+            style={{ marginLeft: '12px', color: '#dc3545' }}
             className="muted-button"
             type="button"
             value="Cancel"

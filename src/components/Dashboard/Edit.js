@@ -98,7 +98,7 @@ const Edit = ({ employees, selectedEmployee, setEmployees, setIsEditing }) => {
         <div style={{ marginTop: '30px' }}>
           <input type="submit" value="Update" />
           <input
-            style={{ marginLeft: '12px' }}
+            style={{ marginLeft: '12px', color: 'red'}}
             className="muted-button"
             type="button"
             value="Cancel"
